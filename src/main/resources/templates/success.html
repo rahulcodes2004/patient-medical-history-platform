@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Registered</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Patient Registered Successfully!</h1>
+
+    <p>Patient ID: <span th:text="${patient.id}"></span></p>
+    <p>Name: <span th:text="${patient.fullName}"></span></p>
+    <p>Age: <span th:text="${patient.age}"></span></p>
+    <p>Gender: <span th:text="${patient.gender}"></span></p>
+    <p>Contact: <span th:text="${patient.contactNumber}"></span></p>
+
+    <a href="/register">Register Another Patient</a>
+    <br><br>
+    <a href="/">Go to Home Page</a>
+</body>
+</html>

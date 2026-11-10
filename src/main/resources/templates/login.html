@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <h1>Login</h1>
+
+    <p th:if="${param.error}" style="color:red;">
+        Invalid email or password.
+    </p>
+
+    <p th:if="${param.registered}" style="color:green;">
+        Account created successfully. Please login.
+    </p>
+
+    <p th:if="${param.logout}" style="color:green;">
+        You have logged out successfully.
+    </p>
+
+    <form th:action="@{/login}" method="post">
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <br><br>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <p>Don't have an account?
+        <a href="/signup">Create Account</a>
+    </p>
+
+</body>
+</html>

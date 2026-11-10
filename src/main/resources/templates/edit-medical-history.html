@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Medical History</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <h1>Edit Medical History</h1>
+
+    <form th:action="@{/edit-medical-history/{id}(id=${history.id})}"
+          method="post">
+
+        <label>Disease Name:</label>
+        <input type="text" name="disease"
+               th:value="${history.disease}" required>
+
+        <br><br>
+
+        <label>Symptoms:</label>
+        <textarea name="symptoms"
+                  th:text="${history.symptoms}"></textarea>
+
+        <br><br>
+
+        <label>Doctor Notes:</label>
+        <textarea name="doctorNotes"
+                  th:text="${history.doctorNotes}"></textarea>
+
+        <br><br>
+
+        <label>Treatment:</label>
+        <textarea name="treatment"
+                  th:text="${history.treatment}"></textarea>
+
+        <br><br>
+
+        <button type="submit">Update Medical History</button>
+
+    </form>
+
+    <br>
+    <a th:href="@{/view-history/{id}(id=${history.patientId})}">
+        Back to Patient History
+    </a>
+
+</body>
+</html>

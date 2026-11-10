@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Medical History Platform</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+<header>
+    <h1>Patient Medical History Platform</h1>
+    <p>Manage patient records and medical information</p>
+</header>
+
+<main>
+    <h2>Patient Dashboard</h2>
+
+    <div class="dashboard">
+
+        <a href="/register" class="card">
+            <h3>Register Patient</h3>
+            <p>Add a new patient to the system.</p>
+        </a>
+
+        <a href="/patients" class="card">
+            <h3>All Patients</h3>
+            <p>View registered patient records.</p>
+        </a>
+
+        <a href="/search-patient" class="card">
+            <h3>Search Patient</h3>
+            <p>Find a patient by name or ID.</p>
+        </a>
+
+        <a href="/health-overview" class="card">
+            <h3>Health Overview</h3>
+            <p>Record general health information.</p>
+        </a>
+
+        <a href="/add-medical-history" class="card">
+            <h3>Medical History</h3>
+            <p>Add disease, symptoms and treatment.</p>
+        </a>
+
+    </div>
+</main>
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+<footer>
+    Patient Medical History Platform
+</footer>
+
+
+    
+</body>
+</html>

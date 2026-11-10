@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Medical History</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <h1>Add Medical History</h1>
+
+    <form th:action="@{/add-medical-history}" method="post">
+        <label>Select Patient:</label>
+        <select name="patientId" required>
+            <option value="">Select Patient</option>
+            <option th:each="patient : ${patients}"
+                    th:value="${patient.id}"
+                    th:text="${patient.id + ' - ' + patient.fullName}">
+            </option>
+        </select>
+
+        <br><br>
+
+        <label>Disease Name:</label>
+        <input type="text" name="disease" required>
+
+        <br><br>
+
+        <label>Symptoms:</label>
+        <textarea name="symptoms"></textarea>
+
+        <br><br>
+
+        <label>Doctor Notes:</label>
+        <textarea name="doctorNotes"></textarea>
+
+        <br><br>
+
+        <label>Treatment:</label>
+        <textarea name="treatment"></textarea>
+
+        <br><br>
+
+        <button type="submit">Save Medical History</button>
+
+    </form>
+
+    <br>
+    <a href="/patients">Back to Patient List</a>
+
+</body>
+</html>

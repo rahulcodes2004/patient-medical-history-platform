@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Patient</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <h1>Search Patient</h1>
+
+    <form action="/search-patient" method="get">
+        <label>Enter Patient  ID:</label>
+
+        <input type="text"
+               name="keyword"
+               th:value="${keyword}"
+               placeholder="Enter name or ID">
+
+        <button type="submit">Search</button>
+    </form>
+
+    <br>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Patient ID</th>
+                <th>Full Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Contact Number</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="patient : ${patients}">
+                <td th:text="${patient.id}"></td>
+                <td th:text="${patient.fullName}"></td>
+                <td th:text="${patient.age}"></td>
+                <td th:text="${patient.gender}"></td>
+                <td th:text="${patient.contactNumber}"></td>
+                <td>
+                    <a th:href="@{/view-history/{id}(id=${patient.id})}">
+                        View History
+                    </a>
+                </td>
+            </tr>
+
+            <tr th:if="${#lists.isEmpty(patients)}">
+                <td colspan="6">No patient found.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/patients">Back to Patient List</a>
+    <br><br>
+    <a href="/">Home Page</a>
+
+</body>
+</html>

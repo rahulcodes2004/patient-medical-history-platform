@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient View History</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <h1>Patient Medical Profile</h1>
+
+    <h2>Patient Details</h2>
+    <p>Patient ID: <span th:text="${patient.id}"></span></p>
+    <p>Name: <span th:text="${patient.fullName}"></span></p>
+    <p>Age: <span th:text="${patient.age}"></span></p>
+    <p>Gender: <span th:text="${patient.gender}"></span></p>
+    <p>Contact: <span th:text="${patient.contactNumber}"></span></p>
+
+    <hr>
+
+    <h2>General Health Overview</h2>
+
+    <div th:if="${overview != null}">
+        <p>Blood Group: <span th:text="${overview.bloodGroup}"></span></p>
+        <p>Allergies: <span th:text="${overview.allergies}"></span></p>
+        <p>Left Eye Power: <span th:text="${overview.leftEyePower}"></span></p>
+        <p>Right Eye Power: <span th:text="${overview.rightEyePower}"></span></p>
+        <p>Height: <span th:text="${overview.height}"></span> cm</p>
+        <p>Weight: <span th:text="${overview.weight}"></span> kg</p>
+        <p>Existing Conditions: <span th:text="${overview.existingConditions}"></span></p>
+        <p>Current Medicines: <span th:text="${overview.currentMedicines}"></span></p>
+    </div>
+
+    <p th:if="${overview == null}">
+        No general health overview recorded yet.
+    </p>
+
+    <hr>
+
+    <h2>Medical History</h2>
+
+    <p th:if="${#lists.isEmpty(medicalHistories)}">
+        No medical history recorded yet.
+    </p>
+
+    <table border="1" cellpadding="8"
+           th:if="${!#lists.isEmpty(medicalHistories)}">
+        <thead>
+            <tr>
+                <th>Disease</th>
+                <th>Symptoms</th>
+                <th>Doctor Notes</th>
+                <th>Treatment</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="history : ${medicalHistories}">
+                <td th:text="${history.disease}"></td>
+                <td th:text="${history.symptoms}"></td>
+                <td th:text="${history.doctorNotes}"></td>
+                <td th:text="${history.treatment}"></td>
+                <td>
+    <a th:href="@{/edit-medical-history/{id}(id=${history.id})}">
+        Edit
+    </a>
+</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/patients">Back to Patient List</a>
+
+</body>
+</html>
+```

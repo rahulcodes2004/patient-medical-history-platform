@@ -1,0 +1,144 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f6fb;
+    color: #1e293b;
+}
+
+header {
+    background-color: #123b63;
+    color: white;
+    padding: 28px 40px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+header p {
+    margin: 0;
+    color: #dbeafe;
+}
+
+main {
+    max-width: 1000px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+main h2 {
+    margin-bottom: 20px;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    display: block;
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #123b63;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 0;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+}
+
+form {
+    background-color: white;
+    max-width: 650px;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px;
+    margin-top: 7px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+button {
+    background-color: #123b63;
+    color: white;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d5688;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+th {
+    background-color: #123b63;
+    color: white;
+}
+
+a {
+    color: #1769aa;
+}
+
+body > h1,
+body > h2,
+body > p,
+body > a {
+    margin-left: 25px;
+}
+
+body > h1 {
+    margin-top: 25px;
+}
